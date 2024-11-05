@@ -1,1 +1,1 @@
-# -Course_DT176G_ReactiveProgramming
+# DT176G - Reactive Programming
