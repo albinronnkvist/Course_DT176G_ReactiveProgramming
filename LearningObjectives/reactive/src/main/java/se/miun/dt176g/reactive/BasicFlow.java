@@ -1,12 +1,11 @@
 package se.miun.dt176g.reactive;
 
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.observers.DisposableObserver;
 
 public class BasicFlow {
-    // Manage multiple Disposable objects
+    // Manage multiple Disposable objects (only necessary for multiple observers)
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     public void run() {
@@ -15,15 +14,7 @@ public class BasicFlow {
         
         
         // Create Observer
-        var observer = new Observer<String>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                // Save the subscription
-                compositeDisposable.add(d);
-                
-                System.out.println("onSubscribe");
-            }
-
+        var observer = new DisposableObserver<String>() {
             @Override
             public void onNext(String s) {
                 System.out.println("onNext: " + s);
@@ -32,16 +23,20 @@ public class BasicFlow {
             @Override
             public void onError(Throwable e) {
                 System.out.println("onError: " + e.getMessage());
+                compositeDisposable.dispose();
             }
             
             @Override
             public void onComplete() {
                 System.out.println("onComplete");
+                compositeDisposable.dispose();
             }
         };
         
-        observable
-            .map(s -> s.toUpperCase()) // Transform
-            .subscribe(observer); // Subscribe
+        compositeDisposable.add(
+            observable
+                .map(String::toUpperCase) // Transform each item
+                .subscribeWith(observer)  // Subscribe and add the subscription to CompositeDisposable
+        );
     }
 }
