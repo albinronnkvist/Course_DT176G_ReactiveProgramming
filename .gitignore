@@ -200,3 +200,7 @@ README.html
 *.iml
 .idea
 .exercism
+
+## JavaScript
+node_modules/
+.env
