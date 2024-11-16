@@ -1,4 +1,4 @@
-package se.miun.dt176g.reactiveJava;
+package se.miun.dt176g.reactive;
 
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;

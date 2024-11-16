@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>se.miun.dt176g</groupId>
-    <artifactId>reactiveJava</artifactId>
+    <artifactId>reactive</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

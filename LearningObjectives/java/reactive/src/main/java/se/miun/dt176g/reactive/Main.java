@@ -1,4 +1,4 @@
-package se.miun.dt176g.reactiveJava;
+package se.miun.dt176g.reactive;
 
 public class Main {
 
