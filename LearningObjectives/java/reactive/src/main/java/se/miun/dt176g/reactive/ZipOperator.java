@@ -9,6 +9,8 @@ public class ZipOperator {
 
         Observable
                 .zip(names, ages, (name, age) -> name + " is " + age + " years old.")
+                .filter(data -> data.contains("Charlie"))
+                .map(data -> data.toUpperCase())
                 .subscribe(data -> System.out.println(data));
     }
 }
