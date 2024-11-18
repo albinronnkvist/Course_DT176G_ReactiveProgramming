@@ -8,7 +8,7 @@ import java.util.function.Function;
  *  2 Be passed as arguments to other functions.
  *  3 Be returned as values from other functions.
  */
-public class firstClassFunction {
+public class FirstClassFunction {
     public static void exec() {
 
         // 1. Assigning Functions to Variables
