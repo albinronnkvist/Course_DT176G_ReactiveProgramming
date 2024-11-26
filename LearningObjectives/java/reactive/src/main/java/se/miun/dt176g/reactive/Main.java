@@ -1,13 +1,13 @@
 package se.miun.dt176g.reactive;
 
-import se.miun.dt176g.reactive.observables.factoryMethods.Create;
+import se.miun.dt176g.reactive.observables.factoryMethods.Just;
 
 public class Main {
 
     public static void main(String[] args) {
         try {
-            var runner = new Create();
-            runner.runWithManualOperators();
+            var runner = new Just();
+            runner.run();
         }
         catch (Exception e) {
             e.printStackTrace();
