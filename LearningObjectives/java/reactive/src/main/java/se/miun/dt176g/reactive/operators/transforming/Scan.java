@@ -1,8 +1,8 @@
-package se.miun.dt176g.reactive.operators;
+package se.miun.dt176g.reactive.operators.transforming;
 
 import io.reactivex.rxjava3.core.Observable;
 
-public class ScanOperator {
+public class Scan {
     public void run() {
         Observable<String> words = Observable.just("Albin", "Is", "Goated");
 
